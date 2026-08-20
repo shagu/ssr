@@ -3,11 +3,22 @@
 const api = typeof browser !== 'undefined' ? browser : chrome
 const action = api.action || api.browserAction
 
-const BADGE_COLOR = '#1c2128'
+// badge colors, dark enough so the white badge text stays readable (wcag aa)
+const BADGE_COLOR_LOW = '#1c2128'
+const BADGE_COLOR_HIGH = '#d40000'
+const BADGE_TEXT_COLOR = '#ffffff'
+
+// up to 5 dark gray, above 5 dark red
+function badgeColor(rating) {
+  return rating > 5 ? BADGE_COLOR_HIGH : BADGE_COLOR_LOW
+}
 
 function setBadge(stats) {
-  action.setBadgeText({ text: stats ? String(stats.rating) : '' })
-  action.setBadgeBackgroundColor({ color: BADGE_COLOR })
+  const rating = stats ? stats.rating : 0
+  action.setBadgeText({ text: stats ? String(rating) : '' })
+  action.setBadgeBackgroundColor({ color: badgeColor(rating) })
+  // white text, not supported by firefox, guard the call
+  if (action.setBadgeTextColor) action.setBadgeTextColor({ color: BADGE_TEXT_COLOR })
 }
 
 function queryActiveTab() {
