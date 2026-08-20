@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ssr</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <div id="state-loading" class="row">counting&#8230;</div>
+    <div id="state-error" class="row" hidden>no data for this page</div>
+    <div id="state-result" hidden>
+      <div class="row">
+        <span id="dashes" class="value">0</span>
+        <span class="label">em dashes &#8212;</span>
+      </div>
+      <div class="row">
+        <span id="ratio" class="value">0</span>
+        <span class="label">dashes per 1000 words</span>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

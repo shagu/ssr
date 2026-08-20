@@ -1,0 +1,29 @@
+body {
+  width: 230px;
+  margin: 0;
+  padding: 12px 14px;
+  font: 13px/1.5 system-ui, sans-serif;
+  color: #1c2128;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  color: #5a6270;
+}
+
+#state-loading,
+#state-error {
+  color: #5a6270;
+}

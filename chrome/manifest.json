@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "ssr - slop score rating",
+  "version": "0.1.0",
+  "description": "counts the em dashes of the current website",
+  "permissions": [
+    "tabs"
+  ],
+  "action": {
+    "default_title": "ssr - slop score rating",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["rank.js", "content.js"]
+    }
+  ]
+}
