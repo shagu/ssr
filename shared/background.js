@@ -1,6 +1,14 @@
-// popup.js - asks the active tab for the dash stats and renders them
+// background.js - keeps the toolbar badge in sync with the active tab
 
 const api = typeof browser !== 'undefined' ? browser : chrome
+const action = api.action || api.browserAction
+
+const BADGE_COLOR = '#1c2128'
+
+function setBadge(stats) {
+  action.setBadgeText({ text: stats ? String(stats.ratio) : '' })
+  action.setBadgeBackgroundColor({ color: BADGE_COLOR })
+}
 
 function queryActiveTab() {
   return new Promise((resolve) => {
@@ -10,7 +18,7 @@ function queryActiveTab() {
   })
 }
 
-function requestCount(tabId) {
+function requestStats(tabId) {
   return new Promise((resolve) => {
     let settled = false
     const done = (value) => {
@@ -27,21 +35,14 @@ function requestCount(tabId) {
   })
 }
 
-function show(state) {
-  document.getElementById('state-error').hidden = state !== 'error'
-  document.getElementById('state-result').hidden = state !== 'result'
-}
-
-async function main() {
+async function updateBadge() {
   const tab = await queryActiveTab()
-  const stats = tab ? await requestCount(tab.id) : null
-  if (!stats) {
-    show('error')
-    return
-  }
-  document.getElementById('dashes').textContent = String(stats.dashes)
-  document.getElementById('ratio').textContent = String(stats.ratio)
-  show('result')
+  const stats = tab ? await requestStats(tab.id) : null
+  setBadge(stats)
 }
 
-main()
+api.tabs.onActivated.addListener(updateBadge)
+api.tabs.onUpdated.addListener((tabId, changeInfo) => {
+  if (changeInfo.status === 'complete') updateBadge()
+})
+updateBadge()

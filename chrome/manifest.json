@@ -6,6 +6,9 @@
   "permissions": [
     "tabs"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_title": "ssr - slop score rating",
     "default_popup": "popup.html",

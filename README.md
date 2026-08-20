@@ -9,6 +9,8 @@ the extension displays two numbers:
 - the slop score rating: the ratio of "—" to other words, multiplied by 1000
 - the amount of "—" on the page
 
+the slop score rating is also shown as a badge on the toolbar button.
+
 ## design
 
 the project is written so that both extensions stay as similar as possible. the chrome and firefox versions share as much code as possible, even though the two browsers have completely different extension formats.
