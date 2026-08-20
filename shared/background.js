@@ -46,9 +46,15 @@ function requestStats(tabId) {
   })
 }
 
+// overlapping updates (e.g. fast tab switching) must not overwrite each other
+let updateSeq = 0
+
 async function updateBadge() {
+  const seq = ++updateSeq
   const tab = await queryActiveTab()
+  if (seq !== updateSeq) return
   const stats = tab ? await requestStats(tab.id) : null
+  if (seq !== updateSeq) return
   setBadge(stats)
 }
 
