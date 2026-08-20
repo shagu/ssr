@@ -62,4 +62,12 @@ api.tabs.onActivated.addListener(updateBadge)
 api.tabs.onUpdated.addListener((tabId, changeInfo) => {
   if (changeInfo.status === 'complete') updateBadge()
 })
+// stats pushed by the content script on dynamic pages
+// (discord, infinite scroll), only update for the active tab
+api.runtime.onMessage.addListener((message, sender) => {
+  if (!message || message.type !== 'ssr/stats' || !sender.tab) return
+  queryActiveTab().then((tab) => {
+    if (tab && tab.id === sender.tab.id) setBadge(message.stats)
+  })
+})
 updateBadge()
