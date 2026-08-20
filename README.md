@@ -1,13 +1,18 @@
 # ssr - slop score rating
 
-a browser extension for chrome and firefox that counts the "—" (em dash) of the current website.
+a browser extension for chrome and firefox that measures the slop of the current website.
 
 ## what it shows
 
-the extension displays two numbers:
+the extension shows the slop score rating and the amount of slop markers per group:
 
-- the slop score rating: the ratio of "—" to other words, multiplied by 1000
-- the amount of "—" on the page
+- the slop score rating: the ratio of slop markers to other words, multiplied by 1000
+- dashes: – (en dash), — (em dash)
+- quotes: „ “ ” ‘ ’ (double and single quotation marks)
+- guillemets: « »
+- bullets: • (bullet point)
+
+all counts run on the full page text of the current tab.
 
 the slop score rating is also shown as a badge on the toolbar button.
 

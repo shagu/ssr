@@ -23,6 +23,10 @@ body {
   color: #5a6270;
 }
 
-#state-result .row + .row {
-  margin-top: 10px;
+#groups > .row + .row {
+  margin-top: 6px;
+}
+
+#groups > .row:first-child {
+  margin-top: 16px;
 }

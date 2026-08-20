@@ -6,7 +6,7 @@ const action = api.action || api.browserAction
 const BADGE_COLOR = '#1c2128'
 
 function setBadge(stats) {
-  action.setBadgeText({ text: stats ? String(stats.ratio) : '' })
+  action.setBadgeText({ text: stats ? String(stats.rating) : '' })
   action.setBadgeBackgroundColor({ color: BADGE_COLOR })
 }
 
@@ -24,7 +24,7 @@ function requestStats(tabId) {
     const done = (value) => {
       if (settled) return
       settled = true
-      resolve(value && value.dashes !== undefined ? value : null)
+      resolve(value && value.markers !== undefined ? value : null)
     }
     const p = api.tabs.sendMessage(tabId, { type: 'ssr/count' }, (response) => {
       if (api.runtime.lastError) return done(null)

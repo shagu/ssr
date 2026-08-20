@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "ssr - slop score rating",
   "version": "0.1.0",
-  "description": "counts the em dashes of the current website",
+  "description": "ranks the slop score of the current website",
   "permissions": [
     "tabs"
   ],
