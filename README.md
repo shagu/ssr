@@ -21,3 +21,31 @@ the project is written so that both extensions stay as similar as possible. the 
 ├── chrome/   # chrome extension (manifest v3)
 └── firefox/  # firefox extension (manifest v2)
 ```
+
+## build
+
+the build uses `make` and `zip`, no dependencies.
+
+```
+make            # build firefox and chrome
+make firefox    # firefox only
+make chrome     # chrome only
+make clean      # remove build/
+```
+
+the build copies `shared/` plus the browser specific files into `build/<browser>/` and packs the result into `build/ssr-<version>-<browser>.xpi` (firefox) or `.zip` (chrome). the version comes from the browser manifest.
+
+## install
+
+### chrome
+
+1. open `chrome://extensions`
+2. enable developer mode
+3. "load unpacked" and pick the `build/chrome/` folder
+
+### firefox
+
+the xpi from the build is unsigned, so you can only use it for temporary testing:
+
+1. open `about:debugging#/runtime/this-firefox` 
+2. "load temporary add-on" and pick the xpi (lasts until firefox is closed)
