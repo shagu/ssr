@@ -6,8 +6,8 @@ a browser extension for chrome and firefox that counts the "—" (em dash) of th
 
 the extension displays two numbers:
 
+- the slop score rating: the ratio of "—" to other words, multiplied by 1000
 - the amount of "—" on the page
-- the ratio of "—" to other words, multiplied by 1000
 
 ## design
 

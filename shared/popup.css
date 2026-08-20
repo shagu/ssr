@@ -23,7 +23,10 @@ body {
   color: #5a6270;
 }
 
-#state-loading,
-#state-error {
+#state-loading {
   color: #5a6270;
+}
+
+#state-result .row + .row {
+  margin-top: 10px;
 }

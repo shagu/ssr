@@ -7,15 +7,20 @@
   </head>
   <body>
     <div id="state-loading" class="row">counting&#8230;</div>
-    <div id="state-error" class="row" hidden>no data for this page</div>
+    <div id="state-error" hidden>
+      <div class="row">
+        <span class="value">0</span>
+        <span class="label">Slop Score Rating</span>
+      </div>
+    </div>
     <div id="state-result" hidden>
       <div class="row">
-        <span id="dashes" class="value">0</span>
-        <span class="label">em dashes &#8212;</span>
+        <span id="ratio" class="value">0</span>
+        <span class="label">Slop Score Rating</span>
       </div>
       <div class="row">
-        <span id="ratio" class="value">0</span>
-        <span class="label">dashes per 1000 words</span>
+        <span id="dashes" class="value">0</span>
+        <span class="label">em dashes</span>
       </div>
     </div>
     <script src="popup.js"></script>
