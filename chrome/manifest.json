@@ -3,9 +3,6 @@
   "name": "ssr - slop score rating",
   "version": "0.1.0",
   "description": "ranks the slop score of the current website",
-  "permissions": [
-    "tabs"
-  ],
   "background": {
     "service_worker": "background.js"
   },
