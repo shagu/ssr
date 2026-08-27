@@ -1,4 +1,4 @@
-# Slop Score Rating
+# ![logo](shared/icons/icon38.png) Slop Score Rating
 
 The web is full of pages that read like they were written by a machine.
 ssr tells you that in one number: it scores every page you visit for
