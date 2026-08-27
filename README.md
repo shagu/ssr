@@ -45,12 +45,19 @@ The rating is a heuristic, not a proof. It measures how much a page
 looks like slop, not who wrote it. Treat it as a first impression,
 not a verdict.
 
-## Design
+## Install
 
-The code is written so that both extensions stay as similar as possible. 
-The Chrome and Firefox versions share as much code as possible.
+The extension is available in the official add-on stores of both browsers:
 
-## Structure
+- **Firefox:** [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/slop-score-rating/)
+- **Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/kcacejbicbnpnebphnbgefigklepaaja)
+
+## Development
+
+### Structure
+
+The code is written so that both extensions stay as similar as possible:
+the Chrome and Firefox versions share as much code as possible.
 
 ```
 .
@@ -59,7 +66,7 @@ The Chrome and Firefox versions share as much code as possible.
 └── firefox/  # firefox extension (manifest v2)
 ```
 
-## Build
+### Build
 
 The build uses `make` and `zip`, no dependencies.
 
@@ -72,15 +79,13 @@ make clean      # remove build/
 
 The build copies `shared/` plus the browser specific files into `build/<browser>/` and packs the result into `build/ssr-<version>-<browser>.xpi` (firefox) or `.zip` (chrome). The version comes from the browser manifest.
 
-## Install
-
-### Chrome
+### Install in Chrome
 
 1. Open `chrome://extensions`
 2. Enable developer mode
 3. "Load unpacked" and pick the `build/chrome/` folder
 
-### Firefox
+### Install in Firefox
 
 The xpi from the build is unsigned, so you can only use it for temporary testing:
 
