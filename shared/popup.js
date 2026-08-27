@@ -36,15 +36,15 @@ function renderGroups(groups) {
   const box = document.getElementById('groups')
   for (const group of groups) {
     const row = document.createElement('div')
-    row.className = 'row'
-    const value = document.createElement('span')
-    value.className = 'value'
-    value.textContent = String(group.count)
+    row.className = group.count === 0 ? 'row zero' : 'row'
     const label = document.createElement('span')
     label.className = 'label'
     label.textContent = group.name + ' (' + group.chars + ')'
-    row.appendChild(value)
+    const value = document.createElement('span')
+    value.className = 'value'
+    value.textContent = String(group.count)
     row.appendChild(label)
+    row.appendChild(value)
     box.appendChild(row)
   }
 }
@@ -56,6 +56,10 @@ async function main() {
     show('error')
     return
   }
+  const verdict = verdictFor(stats.rating)
+  const verdictEl = document.getElementById('verdict')
+  verdictEl.textContent = verdict.word
+  verdictEl.style.color = verdict.color
   document.getElementById('rating').textContent = String(stats.rating)
   renderGroups(stats.groups)
   show('result')

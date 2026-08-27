@@ -6,19 +6,17 @@
     <link rel="stylesheet" href="popup.css">
   </head>
   <body>
-    <div id="state-error">
-      <div class="row">
-        <span class="value">0</span>
-        <span class="label">Slop Score Rating</span>
-      </div>
+    <div id="state-error" class="state" hidden>
+      <div class="verdict dim">Unavailable</div>
+      <div class="rating">No page text to analyze here</div>
     </div>
-    <div id="state-result" hidden>
-      <div class="row">
-        <span id="rating" class="value">0</span>
-        <span class="label">Slop Score Rating</span>
-      </div>
+    <div id="state-result" class="state" hidden>
+      <div id="verdict" class="verdict">unlikely</div>
+      <div class="rating">Slop Score Rating: <span id="rating">0</span></div>
+      <hr>
       <div id="groups"></div>
     </div>
+    <script src="common.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

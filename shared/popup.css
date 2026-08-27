@@ -1,32 +1,59 @@
 body {
-  width: 230px;
+  width: 260px;
   margin: 0;
-  padding: 12px 14px;
+  padding: 16px 18px 14px;
   font: 13px/1.5 system-ui, sans-serif;
   color: #1c2128;
+  background: #ffffff;
 }
 
-.row {
+.state {
+  text-align: center;
+}
+
+.verdict {
+  margin-top: 2px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.verdict.dim {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b949e;
+}
+
+.rating {
+  margin-top: 4px;
+  color: #5a6270;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d0d7de;
+  margin: 12px 0 10px;
+}
+
+#groups .row {
   display: flex;
-  align-items: baseline;
   justify-content: space-between;
   gap: 10px;
+  padding: 2px 0;
 }
 
-.value {
-  font-size: 20px;
+#groups .label {
+  color: #5a6270;
+}
+
+#groups .value {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
-.label {
-  color: #5a6270;
-}
-
-#groups > .row + .row {
-  margin-top: 6px;
-}
-
-#groups > .row:first-child {
-  margin-top: 16px;
+#groups .row.zero .label,
+#groups .row.zero .value {
+  color: #8b949e;
+  font-weight: 400;
 }

@@ -3,20 +3,16 @@
 const api = typeof browser !== 'undefined' ? browser : chrome
 const action = api.action || api.browserAction
 
-// badge colors, dark enough so the white badge text stays readable (wcag aa)
-const BADGE_COLOR_LOW = '#1c2128'
-const BADGE_COLOR_HIGH = '#d40000'
-const BADGE_TEXT_COLOR = '#ffffff'
+// chrome service workers are single-file, load the shared common.js
+// (already loaded by the firefox manifest and the popup)
+if (typeof importScripts === 'function') importScripts('common.js')
 
-// up to 5 dark gray, above 5 dark red
-function badgeColor(rating) {
-  return rating > 5 ? BADGE_COLOR_HIGH : BADGE_COLOR_LOW
-}
+const BADGE_TEXT_COLOR = '#ffffff'
 
 function setBadge(stats) {
   const rating = stats ? stats.rating : 0
   action.setBadgeText({ text: stats ? String(rating) : '' })
-  action.setBadgeBackgroundColor({ color: badgeColor(rating) })
+  action.setBadgeBackgroundColor({ color: verdictFor(rating).color })
   // white text, not supported by firefox, guard the call
   if (action.setBadgeTextColor) action.setBadgeTextColor({ color: BADGE_TEXT_COLOR })
 }
