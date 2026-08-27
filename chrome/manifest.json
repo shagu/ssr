@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "ssr - slop score rating",
+  "name": "Slop Score Rating (SSR)",
   "version": "0.1.0",
-  "description": "ranks the slop score of the current website",
+  "description": "Scores the current page for AI-generated writing.",
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "ssr - slop score rating",
+    "default_title": "Slop Score Rating",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
