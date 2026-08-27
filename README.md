@@ -30,6 +30,7 @@ machine-written text loves to use:
 - Quotes: „ “ ” ‘ ’ (double and single quotation marks)
 - Guillemets: « » (French-style quotation marks)
 - Bullets: • (bullet point)
+- Arrows: → (right arrow)
 
 The slop score rating is the number of these markers per 1000 words.
 Clean prose scores 0. A page where every sentence is studded with
