@@ -13,6 +13,13 @@ typed by an algorithm, before you read a single word.
 Everything runs locally in your browser. There is no account, no
 network, and no data ever leaves your machine.
 
+## Install
+
+|  [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/slop-score-rating/) | [Chrome Web Store](https://chromewebstore.google.com/detail/kcacejbicbnpnebphnbgefigklepaaja) |
+| :-------------------------------------------------------: | :----------------------------------------------------: |
+|  [![firefox](img/firefox.jpg)](https://addons.mozilla.org/en-US/firefox/addon/slop-score-rating/) | [![chrome](img/chrome.jpg)](https://chromewebstore.google.com/detail/kcacejbicbnpnebphnbgefigklepaaja) |
+
+
 ## When to use it
 
 - Judging at a glance whether a project is completely vibe-coded
@@ -44,13 +51,6 @@ the count of every marker group.
 The rating is a heuristic, not a proof. It measures how much a page
 looks like slop, not who wrote it. Treat it as a first impression,
 not a verdict.
-
-## Install
-
-The extension is available in the official add-on stores of both browsers:
-
-- **Firefox:** [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/slop-score-rating/)
-- **Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/kcacejbicbnpnebphnbgefigklepaaja)
 
 ## Development
 
